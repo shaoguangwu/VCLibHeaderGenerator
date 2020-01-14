@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>853</width>
     <height>600</height>
    </rect>
   </property>
@@ -90,7 +90,7 @@
            </font>
           </property>
           <property name="text">
-           <string>E:\DevelopmentKit\ITK\ITK-install\v5.0.1\msvc15_x64\lib</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -103,7 +103,7 @@
            </font>
           </property>
           <property name="text">
-           <string>E:/DevelopmentKit/ITK/ITK-install/v5.0.1/msvc15_x64/lib</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -368,8 +368,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>29</height>
+     <width>853</width>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
