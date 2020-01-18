@@ -6,9 +6,9 @@
 /** The minor version of VCLHG. */
 #define VCLHG_VERSION_MINOR         0
 /** The revision of VCLHG. */
-#define VCLHG_VERSION_REVISION      0
+#define VCLHG_VERSION_REVISION      1
 /** The build status of VCLHG. */
-#define VCLHG_VERSION_STATUS        "Building"
+#define VCLHG_VERSION_STATUS        "R"
 
 /** Transform expression \a __A to string format. */
 #define VCLHG_AUX_STR_EXP(__A)      #__A

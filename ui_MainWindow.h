@@ -82,7 +82,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(853, 600);
         QFont font;
         font.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
         font.setPointSize(10);
@@ -302,7 +302,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 29));
+        menubar->setGeometry(QRect(0, 0, 853, 26));
         menuHelp = new QMenu(menubar);
         menuHelp->setObjectName(QString::fromUtf8("menuHelp"));
         MainWindow->setMenuBar(menubar);
@@ -326,8 +326,8 @@ public:
         lblRelLibPath->setText(QCoreApplication::translate("MainWindow", "Release Library Path:", nullptr));
         lblOutputPath->setText(QCoreApplication::translate("MainWindow", "Output Path:", nullptr));
         lblOutputFileName->setText(QCoreApplication::translate("MainWindow", "Output File Name:", nullptr));
-        ledtDbgLibPath->setText(QCoreApplication::translate("MainWindow", "E:\\DevelopmentKit\\ITK\\ITK-install\\v5.0.1\\msvc15_x64\\lib", nullptr));
-        ledtRelLibPath->setText(QCoreApplication::translate("MainWindow", "E:/DevelopmentKit/ITK/ITK-install/v5.0.1/msvc15_x64/lib", nullptr));
+        ledtDbgLibPath->setText(QString());
+        ledtRelLibPath->setText(QString());
         ledtOutputPath->setPlaceholderText(QCoreApplication::translate("MainWindow", "./", nullptr));
         ledtOutputFileName->setPlaceholderText(QCoreApplication::translate("MainWindow", "ImportLib.h", nullptr));
         btnBrowseDbgLibPath->setText(QCoreApplication::translate("MainWindow", "...", nullptr));

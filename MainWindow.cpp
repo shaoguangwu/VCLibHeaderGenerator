@@ -11,6 +11,8 @@
 #include <QDateTime>
 #include <QDesktopServices>
 
+#include <algorithm>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -84,15 +86,10 @@ QStringList MainWindow::getLibFileList(const QString& path, const QString& suffi
 
 void MainWindow::removeSuffix(QStringList& list, const QString& suffix) const
 {
-    auto it = list.begin();
-    while (it != list.end()) {
-        if (it->contains(suffix)) {
-            if ((it = list.erase(it)) == list.end()) {
-                break;
-            }
-        }
-        ++it;
-    }
+    auto it = std::remove_if(list.begin(), list.end(), [&](const QString& s){
+        return s.contains(suffix);
+    });
+    list.erase(it, list.end());
 }
 
 void MainWindow::removeDuplicates(QStringList& dbgList, QStringList& relList, const QString& dbgSuff, const QString& relSuff) const
@@ -235,12 +232,11 @@ void MainWindow::on_btnGenerate_clicked()
 
 void MainWindow::on_btnOpenOutputFile_clicked()
 {
-    QString fileName = m_outputDir + "/" +  m_outputFileName;
-    QFileInfo fileInfo(fileName);
+    QFileInfo fileInfo(m_outputDir + "/" + m_outputFileName);
     if (!fileInfo.isFile()) {
-        log->error(QString("File is not exists : %1").arg(fileName));
+        log->error(QString("File is not exists : %1").arg(fileInfo.absoluteFilePath()));
     }
-    QDesktopServices::openUrl("file:///" + fileName);
+    QDesktopServices::openUrl(QUrl("file:///" + fileInfo.absoluteFilePath(), QUrl::TolerantMode));
 }
 
 void MainWindow::on_btnBrowseOutputFile_clicked()
