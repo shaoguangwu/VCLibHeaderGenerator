@@ -200,13 +200,19 @@ void MainWindow::on_btnGenerate_clicked()
     out << "#define " << headProtectMacro << "\n";
 
     out << "\n";
-    out << "#ifdef _MSC_VER \n";
+    out << "#if !defined(__PRAGMA_IMPORTLIB) \n";
+    out << "#    ifdef _MSC_VER \n";
+    out << "#        define __PRAGMA_IMPORTLIB(_LIB)    __pragma(comment(lib, _LIB)) \n";
+    out << "#    else \n";
+    out << "#        define __PRAGMA_IMPORTLIB(_LIB) \n";
+    out << "#    endif // _MSC_VER \n";
+    out << "#endif // __PRAGMA_IMPORTLIB \n";
     out << "\n";
     out << "#ifdef _DEBUG \n";
     out << "\n";
 
     for (int i = 0; i < dbgLibList.size(); ++i) {
-        out << "#   pragma comment( lib, \"" << dbgPrefix << dbgLibList[i] << "\" ) \n";
+        out << "__PRAGMA_IMPORTLIB(\"" << dbgPrefix << dbgLibList[i] << "\")\n";
     }
 
     out << "\n";
@@ -214,13 +220,11 @@ void MainWindow::on_btnGenerate_clicked()
     out << "\n";
 
     for (int i = 0; i < relLibList.size(); ++i) {
-        out << "#   pragma comment( lib, \"" << relPrefix << relLibList[i] << "\" ) \n";
+        out << "__PRAGMA_IMPORTLIB(\"" << relPrefix << relLibList[i] << "\")\n";
     }
 
     out << "\n";
     out << "#endif // _DEBUG \n";
-    out << "\n";
-    out << "#endif // _MSC_VER \n";
     out << "\n";
     out << "#endif // " << headProtectMacro;
 

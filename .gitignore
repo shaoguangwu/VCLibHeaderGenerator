@@ -37,3 +37,6 @@
 ImportLib.h
 VCLibHeaderGenerator.pro.user
 VCLibHeaderGenerator.pro.user
+Makefile.Debug
+*.Debug
+*.Release

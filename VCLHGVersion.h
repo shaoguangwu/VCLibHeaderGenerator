@@ -6,7 +6,7 @@
 /** The minor version of VCLHG. */
 #define VCLHG_VERSION_MINOR         0
 /** The revision of VCLHG. */
-#define VCLHG_VERSION_REVISION      1
+#define VCLHG_VERSION_REVISION      2
 /** The build status of VCLHG. */
 #define VCLHG_VERSION_STATUS        "R"
 
